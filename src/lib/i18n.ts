@@ -35,7 +35,7 @@ interface Dictionary {
       paragraph: string
       ctaLabel: string
       ctaNote: string
-      imagePlaceholder: string
+      imageAlt: string
       colorSystemLabel: string
       stats: { value: string; label: string }[]
     }
@@ -101,7 +101,7 @@ const en: Dictionary = {
         'Design, application development and cloud infrastructure, with Mid and Senior-level designers and engineers. Each discipline answers to an operating partner, and you speak directly with whoever leads it.',
       ctaLabel: 'Schedule a call',
       ctaNote: 'Response within 24 business hours',
-      imagePlaceholder: '[ studio photo — 1600×1100, black and white ]',
+      imageAlt: 'Laptop with a code editor open, a notebook, a pen and a coffee mug on a desk.',
       colorSystemLabel: 'Variable color system',
       stats: [
         { value: '21', label: 'Services in catalog' },
@@ -172,7 +172,7 @@ const es: Dictionary = {
         'Diseño, desarrollo de aplicaciones e infraestructura cloud, con diseñadores e ingenieros de nivel Mid y Senior. Cada disciplina responde ante un socio operativo, y hablas directo con quien la lidera.',
       ctaLabel: 'Agendar una llamada',
       ctaNote: 'Respuesta en 24 h hábiles',
-      imagePlaceholder: '[ foto del estudio — 1600×1100, blanco y negro ]',
+      imageAlt: 'Laptop con un editor de código abierto, una libreta, una pluma y una taza de café sobre un escritorio.',
       colorSystemLabel: 'Sistema de color variable',
       stats: [
         { value: '21', label: 'Servicios en catálogo' },

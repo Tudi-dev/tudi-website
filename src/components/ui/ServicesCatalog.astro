@@ -8,12 +8,14 @@ const catalog = getServicesCatalog(locale)
 ---
 
 <section class="border-b-2 border-[var(--text-h)]">
-  <div class="grid gap-8 border-b-2 border-[var(--text-h)] px-6 py-16 lg:grid-cols-[1fr_auto] lg:items-end lg:px-12">
-    <div>
-      <p class="text-xs font-semibold tracking-[0.18em] text-[var(--accent)] uppercase">{catalog.eyebrow}</p>
-      <h2 class="services-heading mt-6 max-w-[24ch]">{catalog.heading}</h2>
+  <div class="border-b-2 border-[var(--text-h)]">
+    <div class="mx-auto grid max-w-[1440px] gap-8 px-6 py-16 lg:grid-cols-[1fr_auto] lg:items-end lg:px-12">
+      <div>
+        <p class="text-xs font-semibold tracking-[0.18em] text-[var(--accent)] uppercase">{catalog.eyebrow}</p>
+        <h2 class="services-heading mt-6 max-w-[24ch]">{catalog.heading}</h2>
+      </div>
+      <p class="max-w-[34ch] text-sm leading-relaxed text-[var(--text)] opacity-80">{catalog.intro}</p>
     </div>
-    <p class="max-w-[34ch] text-sm leading-relaxed text-[var(--text)] opacity-80">{catalog.intro}</p>
   </div>
 
   <fieldset class="tabs-group border-0 p-0 m-0">
@@ -31,37 +33,41 @@ const catalog = getServicesCatalog(locale)
       ))
     }
 
-    <div class="grid gap-px bg-[var(--text-h)] md:grid-cols-3">
-      {
-        catalog.disciplines.map((discipline) => (
-          <label for={`tab-${discipline.key}`} class="tab-label flex flex-col gap-2 bg-[var(--bg)] px-7 py-4">
-            <span class="flex items-center gap-2.5 text-[11px] font-semibold tracking-[0.16em] uppercase opacity-75">
-              <span class="block h-1.5 w-5.5" style={{ background: discipline.accent }} />
-              {discipline.items.length} {catalog.countSuffix}
-            </span>
-            <span class="tab-label-name">{discipline.name}</span>
-            <span class="text-[13px] opacity-80">{discipline.lead}</span>
-          </label>
-        ))
-      }
-    </div>
-
-    <div class="shared-meta grid grid-cols-2 gap-x-8 gap-y-1 bg-[var(--accent)] px-6 py-2 text-white sm:grid-cols-3 lg:px-12">
-      <div>
-        <span class="meta-label">{catalog.metaLabels.levels}</span>
-        <span class="meta-value">{catalog.sharedMeta.levels}</span>
-      </div>
-      <div>
-        <span class="meta-label">{catalog.metaLabels.location}</span>
-        <span class="meta-value">{catalog.sharedMeta.location}</span>
-      </div>
-      <div>
-        <span class="meta-label">{catalog.metaLabels.languages}</span>
-        <span class="meta-value">{catalog.sharedMeta.languages}</span>
+    <div class="bg-[var(--bg)]">
+      <div class="mx-auto grid max-w-[1440px] gap-px md:grid-cols-3">
+        {
+          catalog.disciplines.map((discipline) => (
+            <label for={`tab-${discipline.key}`} class="tab-label flex flex-col gap-2 bg-[var(--bg)] px-7 py-4">
+              <span class="flex items-center gap-2.5 text-[11px] font-semibold tracking-[0.16em] uppercase opacity-75">
+                <span class="block h-1.5 w-5.5" style={{ background: discipline.accent }} />
+                {discipline.items.length} {catalog.countSuffix}
+              </span>
+              <span class="tab-label-name">{discipline.name}</span>
+              <span class="text-[13px] opacity-80">{discipline.lead}</span>
+            </label>
+          ))
+        }
       </div>
     </div>
 
-    <div class="panels px-6 lg:px-12">
+    <div class="shared-meta bg-[var(--accent)] text-white">
+      <div class="mx-auto grid max-w-[1440px] grid-cols-2 gap-x-8 gap-y-1 px-6 py-2 sm:grid-cols-3 lg:px-12">
+        <div>
+          <span class="meta-label">{catalog.metaLabels.levels}</span>
+          <span class="meta-value">{catalog.sharedMeta.levels}</span>
+        </div>
+        <div>
+          <span class="meta-label">{catalog.metaLabels.location}</span>
+          <span class="meta-value">{catalog.sharedMeta.location}</span>
+        </div>
+        <div>
+          <span class="meta-label">{catalog.metaLabels.languages}</span>
+          <span class="meta-value">{catalog.sharedMeta.languages}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panels mx-auto max-w-[1440px] px-6 lg:px-12">
       {
         catalog.disciplines.map((discipline) => (
           <div class="panel" data-panel={discipline.key}>
@@ -116,7 +122,7 @@ const catalog = getServicesCatalog(locale)
     </div>
   </fieldset>
 
-  <div class="flex flex-wrap items-center gap-7 px-6 py-14 lg:px-12">
+  <div class="mx-auto flex max-w-[1440px] flex-wrap items-center gap-7 px-6 py-14 lg:px-12">
     <a
       href="mailto:contacto@tudi.mx"
       class="block bg-[var(--accent)] px-7 py-4.5 text-[13px] font-bold tracking-[0.14em] text-white uppercase hover:opacity-90"
