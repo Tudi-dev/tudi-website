@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+
+const projects = await getCollection('projects', ({ data }) => data.featured)
+---
+
+<BaseLayout
+  title="Inicio"
+  description="Portafolio de tudi: proyectos, experiencia y contacto."
+>
+  <section>
+    <h1>tudi</h1>
+    <p>Portafolio de proyectos.</p>
+  </section>
+
+  <section>
+    <h2>Proyectos destacados</h2>
+    <ul>
+      {
+        projects.map((project) => (
+          <li>
+            <a href={`/projects/${project.id}`}>{project.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>
