@@ -1,0 +1,53 @@
+---
+import { getDictionary, getLocale } from '../../lib/i18n'
+import { getColorForLabel } from '../../lib/colorSystem'
+
+const locale = getLocale(Astro.currentLocale)
+const t = getDictionary(locale)
+---
+
+<section>
+  <div class="mx-auto grid max-w-[1440px] gap-6 px-6 py-14 lg:grid-cols-[1fr_auto] lg:items-end lg:px-12">
+    <h2 class="clients-heading max-w-[26ch]">{t.clients.heading}</h2>
+    <p class="max-w-[32ch] text-sm leading-relaxed font-semibold text-[var(--accent)]">&ldquo;{t.clients.intro}&rdquo;</p>
+  </div>
+
+  <div class="bg-[var(--bg)] pb-14">
+    <div class="mx-auto grid max-w-[1440px] grid-cols-1 gap-3 px-6 sm:grid-cols-2 lg:grid-cols-3 lg:px-12">
+      {
+        t.clients.situations.map((situation) => {
+          const combo = getColorForLabel(situation.sector)
+          return (
+            <div
+              class="flex min-h-[160px] flex-col items-start justify-end gap-3 px-8 py-8"
+              style={{ background: combo.background, color: combo.principal }}
+            >
+              <span class="mb-auto block h-1.5 w-6.5" style={{ background: combo.accent }} />
+              <span class="clients-sector">{situation.sector}</span>
+              <span class="text-[13px] leading-relaxed opacity-85">{situation.detail}</span>
+            </div>
+          )
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .clients-heading {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--text-h);
+    text-wrap: pretty;
+  }
+
+  .clients-sector {
+    font-family: var(--display);
+    font-size: 1.4rem;
+    line-height: 1.1;
+    text-wrap: pretty;
+  }
+</style>

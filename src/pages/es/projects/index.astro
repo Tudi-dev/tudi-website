@@ -1,24 +1,14 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro'
-import { getRelativeLocaleUrl } from 'astro:i18n'
+import PortfolioList from '../../../components/ui/PortfolioList.astro'
+import ClientSituations from '../../../components/ui/ClientSituations.astro'
 import { getLocale, getDictionary } from '../../../lib/i18n'
-import { getProjectsByLocale, getProjectSlug } from '../../../lib/projects'
 
 const locale = getLocale(Astro.currentLocale)
 const t = getDictionary(locale)
-const projects = await getProjectsByLocale(locale)
 ---
 
 <BaseLayout title={t.projects.title} description={t.projects.description}>
-  <h1>{t.projects.heading}</h1>
-  <ul>
-    {
-      projects.map((project) => (
-        <li>
-          <a href={getRelativeLocaleUrl(locale, `/projects/${getProjectSlug(project)}`)}>{project.data.title}</a>
-          <p>{project.data.description}</p>
-        </li>
-      ))
-    }
-  </ul>
+  <PortfolioList />
+  <ClientSituations />
 </BaseLayout>

@@ -6,8 +6,9 @@ export function getProjectSlug(entry: CollectionEntry<'projects'>): string {
   return entry.id.split('/').slice(1).join('/')
 }
 
-export function getProjectsByLocale(locale: Locale, onlyFeatured = false): Promise<CollectionEntry<'projects'>[]> {
-  return getCollection('projects', ({ data }) => data.lang === locale && (!onlyFeatured || data.featured))
+export async function getProjectsByLocale(locale: Locale, onlyFeatured = false): Promise<CollectionEntry<'projects'>[]> {
+  const projects = await getCollection('projects', ({ data }) => data.lang === locale && (!onlyFeatured || data.featured))
+  return projects.sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
 }
 
 /**

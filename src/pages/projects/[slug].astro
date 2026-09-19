@@ -17,8 +17,18 @@ const alternateLocales = await getAvailableLocalesForSlug(getProjectSlug(project
 ---
 
 <BaseLayout title={project.data.title} description={project.data.description} alternateLocales={alternateLocales}>
-  <article>
+  <article class="mx-auto max-w-[1440px] px-6 py-16 lg:px-12">
     <h1>{project.data.title}</h1>
+    {project.data.client && <p class="text-[var(--text)] opacity-80">{project.data.client}</p>}
+    {
+      project.data.tags.length > 0 && (
+        <ul class="flex flex-wrap gap-1.5">
+          {project.data.tags.map((tag) => (
+            <li class="border border-[var(--border)] px-2.5 py-1 text-xs text-[var(--text-h)]">{tag}</li>
+          ))}
+        </ul>
+      )
+    }
     <Content />
   </article>
 </BaseLayout>

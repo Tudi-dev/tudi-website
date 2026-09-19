@@ -59,7 +59,18 @@ interface Dictionary {
   projects: {
     title: string
     description: string
+    eyebrow: string
     heading: string
+    intro: string
+    columns: { num: string; project: string; disciplines: string; preview: string }
+    viewCase: string
+    ctaLabel: string
+    ctaNote: string
+  }
+  clients: {
+    heading: string
+    intro: string
+    situations: { sector: string; detail: string }[]
   }
 }
 
@@ -130,7 +141,43 @@ const en: Dictionary = {
   projects: {
     title: 'Projects',
     description: 'List of portfolio projects.',
-    heading: 'Projects',
+    eyebrow: '02 · Portfolio',
+    heading: 'Work in production, not mockups',
+    intro: "Each case shows which disciplines were involved and what was delivered.",
+    columns: { num: 'No.', project: 'Project', disciplines: 'Disciplines', preview: 'Preview' },
+    viewCase: 'View case →',
+    ctaLabel: "Let's talk about your project",
+    ctaNote: "Two published cases. Each case opens on its own page; more are added as they're authorized.",
+  },
+  clients: {
+    heading: 'Who we work with',
+    intro: "Six situations where Tudi comes in, handled in projects since 2014.",
+    situations: [
+      {
+        sector: 'Brands being born or repositioned',
+        detail: 'Identity, brand manual and application across every channel.',
+      },
+      {
+        sector: 'Companies with an ongoing need for sales material',
+        detail: 'Brochures, catalogs, presentations and POP material.',
+      },
+      {
+        sector: "Teams whose systems are already slowing the business down",
+        detail: 'Backoffice modernization and evolutionary maintenance.',
+      },
+      {
+        sector: 'Businesses migrating to the cloud',
+        detail: 'AWS infrastructure, Terraform and containers on ECS.',
+      },
+      {
+        sector: 'Teams with manual or slow deploys',
+        detail: 'Continuous integration and delivery pipelines.',
+      },
+      {
+        sector: 'Production systems with no one to support them',
+        detail: 'Application support, diagnostics and hotfixes.',
+      },
+    ],
   },
 }
 
@@ -201,7 +248,43 @@ const es: Dictionary = {
   projects: {
     title: 'Proyectos',
     description: 'Listado de proyectos del portafolio.',
-    heading: 'Proyectos',
+    eyebrow: '02 · Portafolio',
+    heading: 'Trabajo en operación, no maquetas',
+    intro: 'Cada caso indica qué disciplinas participaron y qué quedó entregado.',
+    columns: { num: 'Núm.', project: 'Proyecto', disciplines: 'Disciplinas', preview: 'Vista' },
+    viewCase: 'Ver caso →',
+    ctaLabel: 'Hablemos de tu proyecto',
+    ctaNote: 'Dos casos publicados. Cada caso abre en su propia página; los siguientes se agregan conforme se autorizan.',
+  },
+  clients: {
+    heading: 'Con quién trabajamos',
+    intro: 'Seis situaciones en las que entra Tudi, atendidas en proyectos desde 2014.',
+    situations: [
+      {
+        sector: 'Marcas que nacen o se reposicionan',
+        detail: 'Identidad, manual de marca y aplicación en todos los canales.',
+      },
+      {
+        sector: 'Empresas con material de ventas constante',
+        detail: 'Brochures, catálogos, presentaciones y material POP.',
+      },
+      {
+        sector: 'Equipos con sistemas que ya frenan la operación',
+        detail: 'Modernización de backoffice y mantenimiento evolutivo.',
+      },
+      {
+        sector: 'Negocios que migran a la nube',
+        detail: 'Infraestructura AWS, Terraform y contenedores en ECS.',
+      },
+      {
+        sector: 'Equipos con deploys manuales o lentos',
+        detail: 'Pipelines de integración y entrega continua.',
+      },
+      {
+        sector: 'Sistemas en producción sin quién los sostenga',
+        detail: 'Soporte de aplicación, diagnóstico y hotfixes.',
+      },
+    ],
   },
 }
 

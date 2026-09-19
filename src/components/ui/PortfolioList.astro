@@ -1,0 +1,127 @@
+---
+import { Image } from 'astro:assets'
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { getDictionary, getLocale } from '../../lib/i18n'
+import { getProjectsByLocale, getProjectSlug } from '../../lib/projects'
+import { getColorForLabel } from '../../lib/colorSystem'
+
+const locale = getLocale(Astro.currentLocale)
+const t = getDictionary(locale)
+const projects = await getProjectsByLocale(locale)
+---
+
+<section>
+  <div class="border-b-2 border-[var(--text-h)]">
+    <div class="mx-auto grid max-w-[1440px] gap-8 px-6 py-16 lg:grid-cols-[1fr_auto] lg:items-end lg:px-12">
+      <div>
+        <p class="text-xs font-semibold tracking-[0.18em] text-[var(--accent)] uppercase">{t.projects.eyebrow}</p>
+        <h2 class="portfolio-heading mt-6 max-w-[22ch]">{t.projects.heading}</h2>
+      </div>
+      <p class="max-w-[32ch] text-sm leading-relaxed font-semibold text-[var(--accent)]">&ldquo;{t.projects.intro}&rdquo;</p>
+    </div>
+  </div>
+
+  <div class="bg-[var(--text-h)]">
+    <div class="mx-auto grid max-w-[1440px] grid-cols-[36px_1fr_auto] gap-4 px-6 py-3 md:grid-cols-[72px_1fr_1fr_260px_auto] lg:px-12">
+      <span class="portfolio-col-label text-white">{t.projects.columns.num}</span>
+      <span class="portfolio-col-label text-white">{t.projects.columns.project}</span>
+      <span class="portfolio-col-label hidden text-white md:block">{t.projects.columns.disciplines}</span>
+      <span class="portfolio-col-label hidden text-white md:block">{t.projects.columns.preview}</span>
+      <span></span>
+    </div>
+  </div>
+
+  <div>
+    {
+      projects.map((project, index) => (
+        <a
+          href={getRelativeLocaleUrl(locale, `/projects/${getProjectSlug(project)}`)}
+          class="portfolio-row block border-b border-[var(--border)]"
+        >
+          <div class="mx-auto grid max-w-[1440px] grid-cols-[36px_1fr_auto] items-center gap-4 px-6 py-4 md:grid-cols-[72px_1fr_1fr_260px_auto] lg:px-12">
+            <span class="font-[family-name:var(--mono)] text-[13px] text-[var(--accent)]">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <div class="flex min-w-0 flex-col gap-1">
+              <h3 class="portfolio-title">{project.data.title}</h3>
+              {project.data.client && <span class="text-[13px] text-[var(--text)] opacity-70">{project.data.client}</span>}
+            </div>
+            <div class="hidden flex-wrap gap-1.5 md:flex">
+              {project.data.tags.map((tag) => {
+                const combo = getColorForLabel(tag)
+                return (
+                  <span
+                    class="px-2.5 py-1 text-xs font-semibold whitespace-nowrap"
+                    style={{ background: combo.background, color: combo.principal }}
+                  >
+                    {tag}
+                  </span>
+                )
+              })}
+            </div>
+            {project.data.image && (
+              <Image
+                src={project.data.image}
+                alt={project.data.title}
+                class="hidden aspect-video w-full object-cover md:block"
+                widths={[260, 520]}
+                sizes="260px"
+              />
+            )}
+            <span class="text-xs font-bold tracking-[0.14em] whitespace-nowrap text-[var(--text-h)]">
+              {t.projects.viewCase}
+            </span>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+
+  <div class="mx-auto flex max-w-[1440px] flex-wrap items-center gap-7 px-6 py-14 lg:px-12">
+    <a
+      href={getRelativeLocaleUrl(locale, '/contact')}
+      class="block bg-[var(--accent)] px-7 py-4.5 text-[13px] font-bold tracking-[0.14em] text-white uppercase hover:opacity-90"
+    >
+      {t.projects.ctaLabel}
+    </a>
+    <span class="text-[13px] text-[var(--text)] opacity-70">{t.projects.ctaNote}</span>
+  </div>
+</section>
+
+<style>
+  .portfolio-heading {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--text-h);
+    text-wrap: pretty;
+  }
+
+  .portfolio-col-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  .portfolio-title {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 1.6rem;
+    line-height: 1.1;
+    color: var(--text-h);
+    text-wrap: pretty;
+  }
+
+  .portfolio-row {
+    color: inherit;
+    transition: background 0.15s ease;
+  }
+
+  .portfolio-row:hover {
+    background: var(--accent-bg);
+  }
+</style>
