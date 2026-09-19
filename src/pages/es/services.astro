@@ -1,12 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import Hero from '../../components/ui/Hero.astro'
 import { getLocale, getDictionary } from '../../lib/i18n'
 
 const locale = getLocale(Astro.currentLocale)
 const t = getDictionary(locale)
 ---
 
-<BaseLayout title={t.home.title} description={t.home.description}>
-  <Hero />
+<BaseLayout title={t.services.title} description={t.services.description}>
+  <h1>{t.services.heading}</h1>
+  <p>{t.services.body}</p>
 </BaseLayout>

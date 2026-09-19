@@ -10,6 +10,7 @@
   --accent-border: rgb(241 93 42 / 50%);
   --sans: system-ui, 'Segoe UI', roboto, sans-serif;
   --mono: ui-monospace, consolas, monospace;
+  --display: 'Instrument Serif', georgia, serif;
 
   color-scheme: light dark;
   color: var(--text);
