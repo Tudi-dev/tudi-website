@@ -2,8 +2,27 @@
 title: "Ixchel, hand-woven textiles"
 description: "Naming and full identity for a crochet artisan: naming, symbol, pattern, palette, stationery, packaging and social media templates."
 client: "Textile crafts · Tijuana"
+caseLabel: "Case 02 · Naming & identity"
+concept: "The stitch as symbol"
+designer: "Karen Varela"
+challengeHeading: "The name and the symbol come from the same gesture"
 tags: ["Naming", "Corporate identity", "Packaging", "Social media"]
 image: "../_images/ixchel-packing.jpg"
+logo: "../_images/ixchel-logotipo.jpg"
+logoBackground: "#814a4f"
+gallery:
+  - image: "../_images/ixchel-packing.jpg"
+    caption: "Kraft paper packaging with a hang tag"
+  - image: "../_images/ixchel-bolsa.jpg"
+    caption: "Product template with the stitch pattern"
+  - image: "../_images/ixchel-tejidos.jpg"
+    caption: "Product post with a color block"
+  - image: "../_images/ixchel-top.jpg"
+    caption: "Circular frame for the product catalog"
+  - image: "../_images/ixchel-banner-1.jpg"
+    caption: "Quote template, circular frame version"
+  - image: "../_images/ixchel-banner-3.jpg"
+    caption: "Quote template, color block version"
 date: 2025-09-01
 featured: true
 lang: "en"

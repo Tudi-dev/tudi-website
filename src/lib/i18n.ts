@@ -72,6 +72,14 @@ interface Dictionary {
     intro: string
     situations: { sector: string; detail: string }[]
   }
+  projectDetail: {
+    backLink: string
+    metaLabels: { client: string; concept: string; designer: string }
+    applicationsLabel: string
+    closingQuestion: string
+    ctaLabel: string
+    ctaSecondary: string
+  }
 }
 
 const en: Dictionary = {
@@ -179,6 +187,14 @@ const en: Dictionary = {
       },
     ],
   },
+  projectDetail: {
+    backLink: '← Portfolio',
+    metaLabels: { client: 'Client', concept: 'Concept', designer: 'Design' },
+    applicationsLabel: 'Applications',
+    closingQuestion: 'Does your brand need the same treatment?',
+    ctaLabel: "Let's talk about your project",
+    ctaSecondary: 'View portfolio',
+  },
 }
 
 const es: Dictionary = {
@@ -285,6 +301,14 @@ const es: Dictionary = {
         detail: 'Soporte de aplicación, diagnóstico y hotfixes.',
       },
     ],
+  },
+  projectDetail: {
+    backLink: '← Portafolio',
+    metaLabels: { client: 'Cliente', concept: 'Concepto', designer: 'Diseño' },
+    applicationsLabel: 'Aplicaciones',
+    closingQuestion: '¿Tu marca necesita el mismo tratamiento?',
+    ctaLabel: 'Hablemos de tu proyecto',
+    ctaSecondary: 'Ver portafolio',
   },
 }
 
