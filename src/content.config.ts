@@ -12,6 +12,7 @@ const projects = defineCollection({
       date: z.coerce.date(),
       url: z.string().url().optional(),
       featured: z.boolean().default(false),
+      lang: z.enum(['en', 'es']),
     }),
 })
 

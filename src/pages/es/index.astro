@@ -1,8 +1,8 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
 import { getRelativeLocaleUrl } from 'astro:i18n'
-import { getLocale, getDictionary } from '../lib/i18n'
-import { getProjectsByLocale, getProjectSlug } from '../lib/projects'
+import { getLocale, getDictionary } from '../../lib/i18n'
+import { getProjectsByLocale, getProjectSlug } from '../../lib/projects'
 
 const locale = getLocale(Astro.currentLocale)
 const t = getDictionary(locale)

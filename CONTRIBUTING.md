@@ -40,6 +40,19 @@ Si `npm run verify` falla, la tarea no está lista. Además, verificar manualmen
 - `src/pages/` — rutas del sitio.
 - `src/styles/global.css` — tokens de diseño (colores, tipografía) + Tailwind.
 
+## Internacionalización (i18n)
+
+El sitio usa el enrutamiento i18n nativo de Astro (`i18n` en `astro.config.mjs`), sin librerías externas.
+
+- **Inglés (`en`) es el `defaultLocale`** y vive en la raíz: `/`, `/about`, `/contact`, `/projects`.
+- **Español (`es`)** vive bajo el prefijo `/es`: `/es`, `/es/about`, `/es/contact`, `/es/projects` (`routing: { prefixDefaultLocale: false }`).
+- Cada página tiene un archivo por locale bajo `src/pages/` (raíz para inglés, `src/pages/es/` para español) — es duplicación intencional propia del enrutamiento por archivos de Astro, no una abstracción a evitar.
+- Todo el copy de UI (nav, header, footer, títulos/descripciones de página) vive en el diccionario tipado `src/lib/i18n.ts`. Las páginas y componentes resuelven el idioma actual con `Astro.currentLocale` (vía `getLocale()`) y llaman `useTranslations(locale)` — no se hardcodea texto en el markup.
+- Los links internos se construyen con `getRelativeLocaleUrl()` de `astro:i18n`, nunca concatenando el prefijo `/es` a mano.
+- El switcher de idioma en `Header.astro`/`Footer.astro` usa `getRelativePath()` (en `src/lib/i18n.ts`) para obtener la ruta actual sin el prefijo de locale, y arma el link a la página equivalente en el otro idioma con `getRelativeLocaleUrl()`.
+- **Content collection `projects`:** el schema (`src/content.config.ts`) tiene un campo `lang: 'en' | 'es'` obligatorio. Los archivos se organizan por carpeta de locale (`src/content/projects/en/*.md`, `src/content/projects/es/*.md`); el slug de la ruta es el nombre de archivo sin esa carpeta (`getProjectSlug()` en `src/lib/projects.ts`). Cada página de listado/detalle filtra por `data.lang === locale` (`getProjectsByLocale()`). Para que el switcher de idioma funcione en `/projects/[slug]`, un proyecto traducido a ambos idiomas debe usar el mismo nombre de archivo (slug) en ambas carpetas.
+- `Seo.astro` agrega `<link rel="alternate" hreflang>` por cada locale disponible (más `x-default` apuntando al locale por defecto). El sitemap (`@astrojs/sitemap`) recibe su propia opción `i18n` en `astro.config.mjs` para generar las mismas alternates.
+
 ## Componentes: `.astro` vs React
 
 - Por defecto, todo componente nuevo es `.astro`.

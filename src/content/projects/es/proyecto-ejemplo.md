@@ -4,6 +4,7 @@ description: "Descripción corta del proyecto para tarjetas de listado y meta de
 tags: ["astro", "typescript"]
 date: 2026-01-01
 featured: true
+lang: "es"
 ---
 
 Contenido del caso de estudio. Reemplaza este archivo con tus proyectos reales,

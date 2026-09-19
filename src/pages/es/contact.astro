@@ -1,6 +1,6 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-import { getLocale, getDictionary } from '../lib/i18n'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getLocale, getDictionary } from '../../lib/i18n'
 
 const locale = getLocale(Astro.currentLocale)
 const t = getDictionary(locale)

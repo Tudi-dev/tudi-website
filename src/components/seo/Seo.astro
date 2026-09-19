@@ -1,18 +1,35 @@
 ---
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { defaultLocale, getLocale, getRelativePath, locales, type Locale } from '../../lib/i18n'
+
 interface Props {
   title: string
   description: string
   image?: string
+  /** Locales that actually publish this page's path — narrows hreflang alternates when a translation isn't 1:1 (e.g. a project slug that differs per locale). Defaults to all locales. */
+  alternateLocales?: Locale[]
 }
 
-const { title, description, image } = Astro.props
+const { title, description, image, alternateLocales = locales } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const ogImage = image ? new URL(image, Astro.site).toString() : undefined
+
+const locale = getLocale(Astro.currentLocale)
+const relativePath = getRelativePath(Astro.url.pathname, locale)
+const alternateLinks = alternateLocales.map((hreflang) => ({
+  hreflang,
+  href: new URL(getRelativeLocaleUrl(hreflang, relativePath), Astro.site).toString(),
+}))
+const defaultHref = alternateLocales.includes(defaultLocale)
+  ? new URL(getRelativeLocaleUrl(defaultLocale, relativePath), Astro.site).toString()
+  : undefined
 ---
 
 <title>{title} · tudi</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL} />
+{alternateLinks.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
+{defaultHref && <link rel="alternate" hreflang="x-default" href={defaultHref} />}
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />

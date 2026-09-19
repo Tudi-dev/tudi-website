@@ -1,11 +1,11 @@
 export interface NavLink {
-  href: string
-  label: string
+  key: 'home' | 'projects' | 'about' | 'contact'
+  path: string
 }
 
 export const navLinks: NavLink[] = [
-  { href: '/', label: 'Inicio' },
-  { href: '/projects', label: 'Portafolio' },
-  { href: '/about', label: 'Estudio' },
-  { href: '/contact', label: 'Contacto' },
+  { key: 'home', path: '/' },
+  { key: 'projects', path: '/projects' },
+  { key: 'about', path: '/about' },
+  { key: 'contact', path: '/contact' },
 ]
