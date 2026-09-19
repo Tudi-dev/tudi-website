@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "lint": "oxlint",
-    "verify": "astro check && oxlint && astro build"
+    "lint:css": "stylelint \"src/**/*.{css,astro}\"",
+    "verify": "astro check && oxlint && stylelint \"src/**/*.{css,astro}\" && astro build"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.6",
@@ -26,6 +27,9 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "oxlint": "^1.81.0",
+    "postcss-html": "^2.0.0",
+    "stylelint": "^17.15.0",
+    "stylelint-config-standard": "^40.0.0",
     "typescript": "~6.0.2"
   }
 }

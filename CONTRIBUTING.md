@@ -2,6 +2,8 @@
 
 Este documento define cómo se trabaja en este proyecto. Cualquier cambio (feature, fix, contenido) debe pasar por aquí antes de darse por terminado. Si algo aquí ya no aplica, se actualiza este documento primero, no se ignora en silencio.
 
+Para convenciones concretas de código (nombres, formato, estilo) ver [CODE_STANDARDS.md](./CODE_STANDARDS.md).
+
 ## Principios
 
 1. **HTML estático por defecto.** Astro renderiza cada página como HTML plano; JavaScript en cliente solo se agrega donde hay interactividad real (formularios, estado, listeners). Si una página se ve y funciona bien sin JS, no lleva JS.
@@ -19,6 +21,7 @@ Este comando corre, en orden:
 
 - `astro check` — type-check de `.astro`/`.ts`/`.tsx`
 - `oxlint` — lint de `.ts`/`.tsx`
+- `stylelint` — lint de CSS (`.css` y `<style>` en `.astro`)
 - `astro build` — build de producción completo
 
 Si `npm run verify` falla, la tarea no está lista. Además, verificar manualmente:
