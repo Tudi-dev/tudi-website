@@ -49,8 +49,6 @@ interface Dictionary {
   services: {
     title: string
     description: string
-    heading: string
-    body: string
   }
   contact: {
     title: string
@@ -121,9 +119,7 @@ const en: Dictionary = {
   },
   services: {
     title: 'Services',
-    description: 'Design, development and cloud infrastructure services.',
-    heading: 'Services',
-    body: 'Content coming soon.',
+    description: 'Design, development and cloud infrastructure services, organized into three catalogs.',
   },
   contact: {
     title: 'Contact',
@@ -194,9 +190,7 @@ const es: Dictionary = {
   },
   services: {
     title: 'Servicios',
-    description: 'Servicios de diseño, desarrollo e infraestructura cloud.',
-    heading: 'Servicios',
-    body: 'Contenido pendiente.',
+    description: 'Servicios de diseño, desarrollo e infraestructura cloud, organizados en tres catálogos.',
   },
   contact: {
     title: 'Contacto',
