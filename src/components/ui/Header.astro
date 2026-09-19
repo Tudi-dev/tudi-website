@@ -1,15 +1,5 @@
 ---
-interface NavLink {
-  href: string
-  label: string
-}
-
-const navLinks: NavLink[] = [
-  { href: '/', label: 'Inicio' },
-  { href: '/projects', label: 'Portafolio' },
-  { href: '/about', label: 'Estudio' },
-  { href: '/contact', label: 'Contacto' },
-]
+import { navLinks } from '../../lib/nav'
 
 const currentPath = Astro.url.pathname
 const isActive = (href: string) => (href === '/' ? currentPath === '/' : currentPath.startsWith(href))

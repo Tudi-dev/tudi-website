@@ -1,0 +1,138 @@
+---
+import { navLinks } from '../../lib/nav'
+---
+
+<footer class="tudi-footer border-t-2 border-[var(--footer-fg)] bg-[var(--footer-bg)] text-[var(--footer-fg)]">
+  <div class="grid grid-cols-1 gap-10 px-6 py-12 md:grid-cols-[1fr_auto] md:gap-x-16 md:gap-y-10 md:px-12">
+    <a href="/" class="block leading-none" aria-label="Tudi — inicio">
+      <svg
+        viewBox="0 0 100 48"
+        width="112"
+        height="54"
+        role="img"
+        aria-label="Tudi — Desarrollo & Diseño"
+        class="tudi-logo block overflow-visible"
+      >
+        <polygon
+          class="tudi-logo-mark"
+          points="45.98,18.55 45.95,41.31 43.09,41.31 37.88,38.2 37.84,18.55 29.01,18.55 29.04,39.53 40.18,45.96 54.98,45.96 54.98,18.55"
+        ></polygon>
+        <path
+          class="tudi-logo-accent"
+          d="M77.51,4.92l0.02,13.42l-5.5,0l-12.17,7.07v13.45l12.17,7.02l13.93,0.01V4.92H77.51z M74.73,40.9l-6.38-3.76V27.07l6.38-3.76l2.71,0V40.9L74.73,40.9z"
+        ></path>
+        <polygon class="tudi-logo-mark" points="99.33,14.71 99.34,9.65 95.14,7.22 90.86,7.22 90.86,14.71"></polygon>
+        <rect class="tudi-logo-mark" x="90.72" y="17.9" width="8.53" height="28.1"></rect>
+        <polygon
+          class="tudi-logo-mark"
+          points="18.39,38.54 18.39,9.16 27.22,9.16 27.22,1.96 1.17,1.96 1.17,9.16 9.86,9.16 9.86,40.07 21.28,45.87 31.01,45.87"
+        ></polygon>
+      </svg>
+    </a>
+    <div class="flex flex-col items-start gap-6 md:items-end">
+      <div class="flex gap-5">
+        <a
+          href="https://www.facebook.com/Tudi.mx"
+          target="_blank"
+          rel="noopener"
+          aria-label="Facebook"
+          class="block text-[var(--accent)] hover:opacity-70"
+        >
+          <svg viewBox="10 10 20 20" width="24" height="24" role="img" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M22.43,14.82c0.48-0.02,0.97,0,1.45,0c0.06,0,0.12,0,0.2,0V12.3c-0.26-0.03-0.53-0.06-0.8-0.08c-0.5-0.02-0.99-0.05-1.49-0.04c-0.76,0.02-1.48,0.2-2.1,0.65c-0.72,0.52-1.11,1.24-1.27,2.1c-0.06,0.35-0.08,0.72-0.09,1.08c-0.01,0.57,0,1.13,0,1.7v0.21h-2.41v2.81h2.4v7.07h2.93v-7.06h2.39c0.12-0.94,0.24-1.86,0.37-2.83c-0.19,0-0.36,0-0.54,0c-0.68,0-2.24,0-2.24,0s0.01-1.39,0.02-2C21.27,15.1,21.76,14.85,22.43,14.82z"
+            ></path>
+          </svg>
+        </a>
+        <a
+          href="https://www.linkedin.com/company/tudidd/"
+          target="_blank"
+          rel="noopener"
+          aria-label="LinkedIn"
+          class="block text-[var(--accent)] hover:opacity-70"
+        >
+          <svg viewBox="10 10 20 20" width="24" height="24" role="img" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M12.98,15.57h3.01v9.68h-3.01V15.57z M14.49,10.76c0.96,0,1.74,0.78,1.74,1.74c0,0.96-0.78,1.75-1.74,1.75c-0.97,0-1.75-0.78-1.75-1.75C12.74,11.54,13.52,10.76,14.49,10.76"
+            ></path>
+            <path
+              fill="currentColor"
+              d="M17.88,15.57h2.89v1.32h0.04c0.4-0.76,1.38-1.56,2.85-1.56c3.05,0,3.61,2,3.61,4.61v5.31h-3.01v-4.71c0-1.12-0.02-2.57-1.56-2.57c-1.57,0-1.81,1.22-1.81,2.48v4.79h-3.01V15.57z"
+            ></path>
+          </svg>
+        </a>
+        <a
+          href="https://www.youtube.com/@tudi_mx"
+          target="_blank"
+          rel="noopener"
+          aria-label="YouTube"
+          class="block text-[var(--accent)] hover:opacity-70"
+        >
+          <svg viewBox="10 10 20 20" width="24" height="24" role="img" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M13.58,25.34c-0.61-0.2-1.02-0.6-1.24-1.21c-0.54-1.48-0.7-7.66,0.34-8.88c0.35-0.42,0.81-0.66,1.35-0.72c2.79-0.3,11.41-0.26,12.4,0.1c0.58,0.21,1,0.59,1.22,1.17c0.59,1.53,0.61,7.09-0.08,8.56c-0.19,0.4-0.49,0.68-0.88,0.88C25.65,25.79,14.95,25.79,13.58,25.34z M18.01,22.44c1.68-0.87,3.34-1.73,5.02-2.6c-1.69-0.88-3.35-1.75-5.02-2.62C18.01,18.96,18.01,20.69,18.01,22.44z"
+            ></path>
+          </svg>
+        </a>
+        <a
+          href="https://www.instagram.com/tudidd/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+          class="block text-[var(--accent)] hover:opacity-70"
+        >
+          <svg viewBox="10 10 20 20" width="24" height="24" role="img" aria-hidden="true">
+            <path
+              fill="currentColor"
+              d="M24.9,12.49H15.1c-1.23,0-2.23,1-2.23,2.23v9.79c0,1.23,1,2.23,2.23,2.23h9.79c1.23,0,2.23-1,2.23-2.23v-9.79C27.12,13.49,26.13,12.49,24.9,12.49z M23.05,14.45c0-0.22,0.18-0.4,0.4-0.4h1.72c0.22,0,0.4,0.18,0.4,0.4v1.72c0,0.22-0.18,0.4-0.4,0.4h-1.72c-0.22,0-0.4-0.18-0.4-0.4V14.45z M17.37,18.59c0.41-1.05,1.43-1.79,2.63-1.79c1.19,0,2.22,0.74,2.63,1.79c0.13,0.32,0.2,0.67,0.2,1.03c0,1.56-1.27,2.82-2.82,2.82c-1.56,0-2.82-1.27-2.82-2.82C17.18,19.25,17.25,18.9,17.37,18.59z M25.62,24.51c0,0.4-0.32,0.72-0.72,0.72H15.1c-0.4,0-0.72-0.32-0.72-0.72v-5.92h1.41c-0.08,0.33-0.12,0.67-0.12,1.03c0,2.39,1.94,4.33,4.33,4.33c2.39,0,4.33-1.94,4.33-4.33c0-0.35-0.04-0.7-0.12-1.03h1.41V24.51z"
+            ></path>
+          </svg>
+        </a>
+      </div>
+      <div class="flex flex-col items-start gap-2 md:items-end">
+        <a href="mailto:contacto@tudi.mx" class="text-sm hover:text-[var(--accent)]"> contacto@tudi.mx </a>
+        <span class="text-sm text-[var(--footer-fg)]/70">Tijuana, México · Zona horaria PST</span>
+      </div>
+    </div>
+    <div
+      class="col-span-full mt-2 flex flex-col gap-6 border-t border-[var(--footer-fg)]/20 pt-6 md:flex-row md:items-baseline md:justify-between"
+    >
+      <nav aria-label="Pie de página" class="flex flex-wrap gap-8">
+        {
+          navLinks.map((link) => (
+            <a href={link.href} class="text-sm text-[var(--footer-fg)]/85 hover:text-[var(--accent)]">
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+      <span class="text-lg font-medium">Desarrollo <span class="text-[var(--accent)]">&amp;</span> Diseño</span>
+    </div>
+  </div>
+  <div class="h-3.5 bg-[var(--accent)]"></div>
+</footer>
+
+<style>
+  .tudi-footer {
+    --footer-bg: var(--text-h);
+    --footer-fg: var(--bg);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .tudi-footer {
+      --footer-bg: var(--bg);
+      --footer-fg: var(--text-h);
+    }
+  }
+
+  .tudi-logo-mark {
+    fill: var(--footer-fg);
+  }
+
+  .tudi-logo-accent {
+    fill: var(--accent);
+  }
+</style>
