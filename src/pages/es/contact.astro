@@ -1,14 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { getLocale, getDictionary } from '../../lib/i18n'
+import Contact from '../../components/ui/Contact.astro'
 
 const locale = getLocale(Astro.currentLocale)
 const t = getDictionary(locale)
 ---
 
 <BaseLayout title={t.contact.title} description={t.contact.description}>
-  <h1>{t.contact.heading}</h1>
-  <p>
-    {t.contact.intro} <a href="mailto:contacto@tudi.mx">contacto@tudi.mx</a>.
-  </p>
+  <Contact />
 </BaseLayout>

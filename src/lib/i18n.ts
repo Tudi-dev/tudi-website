@@ -51,8 +51,6 @@ interface Dictionary {
   contact: {
     title: string
     description: string
-    heading: string
-    intro: string
   }
   projects: {
     title: string
@@ -139,9 +137,7 @@ const en: Dictionary = {
   },
   contact: {
     title: 'Contact',
-    description: 'How to reach me.',
-    heading: 'Contact',
-    intro: 'Write to me at',
+    description: 'Reach the operating partner for design, development or DevOps directly — no general inbox.',
   },
   projects: {
     title: 'Projects',
@@ -253,9 +249,7 @@ const es: Dictionary = {
   },
   contact: {
     title: 'Contacto',
-    description: 'Cómo contactarme.',
-    heading: 'Contacto',
-    intro: 'Escríbeme a',
+    description: 'Contacta directo al socio operativo de diseño, desarrollo o DevOps — sin buzón general.',
   },
   projects: {
     title: 'Proyectos',
