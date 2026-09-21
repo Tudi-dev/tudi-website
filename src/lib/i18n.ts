@@ -316,13 +316,16 @@ export function getDictionary(locale: Locale): Dictionary {
   return dictionaries[locale]
 }
 
-/** Strips the current locale's URL prefix, returning the locale-neutral path used to build links to other locales. */
+/** Strips the deploy base path and the current locale's URL prefix, returning the locale- and base-neutral path used to build links to other locales. */
 export function getRelativePath(pathname: string, locale: Locale): string {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, '')
+  const withoutBase = base && pathname.startsWith(base) ? pathname.slice(base.length) || '/' : pathname
+
   if (locale === defaultLocale) {
-    return pathname || '/'
+    return withoutBase || '/'
   }
   const prefix = `/${locale}`
-  if (pathname === prefix) return '/'
-  if (pathname.startsWith(`${prefix}/`)) return pathname.slice(prefix.length) || '/'
-  return pathname
+  if (withoutBase === prefix) return '/'
+  if (withoutBase.startsWith(`${prefix}/`)) return withoutBase.slice(prefix.length) || '/'
+  return withoutBase
 }
