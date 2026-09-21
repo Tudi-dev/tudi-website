@@ -7,17 +7,17 @@ concept: "Reconstruyendo emociones"
 designer: "Karen Varela"
 challengeHeading: "El reto era transmitir calma sin caer en lo clínico"
 tags: ["Identidad corporativa", "Papelería", "Señalización", "Redes sociales"]
-image: "../_images/raymundo-signage.jpg"
-logo: "../_images/logo-raymundo.jpg"
+image: "../_images/raymundo-signage.webp"
+logo: "../_images/logo-raymundo.webp"
 logoBackground: "#9cdbe4"
 gallery:
-  - image: "../_images/raymundo-taza.jpg"
+  - image: "../_images/raymundo-taza.webp"
     caption: "Taza con el símbolo y logotipo de Raymundo"
-  - image: "../_images/raymundo-bolsa.jpg"
+  - image: "../_images/raymundo-bolsa.webp"
     caption: "Bolsa de tela con el logotipo impreso en gris"
-  - image: "../_images/raymundo-playera.jpg"
+  - image: "../_images/raymundo-playera.webp"
     caption: "Playera aqua con el logotipo aplicado al frente"
-  - image: "../_images/raymundo-redes.jpg"
+  - image: "../_images/raymundo-redes.webp"
     caption: "Aplicación de la identidad en el perfil de redes sociales"
 date: 2025-06-01
 featured: true

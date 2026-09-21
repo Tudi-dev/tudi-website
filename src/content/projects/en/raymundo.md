@@ -7,17 +7,17 @@ concept: "Reconstructing emotions"
 designer: "Karen Varela"
 challengeHeading: "The challenge was to convey calm without feeling clinical"
 tags: ["Corporate identity", "Stationery", "Signage", "Social media"]
-image: "../_images/raymundo-signage.jpg"
-logo: "../_images/logo-raymundo.jpg"
+image: "../_images/raymundo-signage.webp"
+logo: "../_images/logo-raymundo.webp"
 logoBackground: "#9cdbe4"
 gallery:
-  - image: "../_images/raymundo-taza.jpg"
+  - image: "../_images/raymundo-taza.webp"
     caption: "Mug with Raymundo's symbol and logotype"
-  - image: "../_images/raymundo-bolsa.jpg"
+  - image: "../_images/raymundo-bolsa.webp"
     caption: "Tote bag with the logotype printed in gray"
-  - image: "../_images/raymundo-playera.jpg"
+  - image: "../_images/raymundo-playera.webp"
     caption: "Aqua t-shirt with the logotype applied on the front"
-  - image: "../_images/raymundo-redes.jpg"
+  - image: "../_images/raymundo-redes.webp"
     caption: "Identity applied to the social media profile"
 date: 2025-06-01
 featured: true
