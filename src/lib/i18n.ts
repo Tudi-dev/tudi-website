@@ -43,8 +43,6 @@ interface Dictionary {
   about: {
     title: string
     description: string
-    heading: string
-    body: string
   }
   services: {
     title: string
@@ -131,10 +129,9 @@ const en: Dictionary = {
     },
   },
   about: {
-    title: 'About',
-    description: 'Who I am and what I do.',
-    heading: 'About',
-    body: 'Content coming soon.',
+    title: 'Studio',
+    description:
+      'Custom design, software development and digital solutions for businesses that need to modernize, integrate or migrate their systems.',
   },
   services: {
     title: 'Services',
@@ -246,10 +243,9 @@ const es: Dictionary = {
     },
   },
   about: {
-    title: 'Sobre mí',
-    description: 'Quién soy y qué hago.',
-    heading: 'Sobre mí',
-    body: 'Contenido pendiente.',
+    title: 'Estudio',
+    description:
+      'Diseño, desarrollo de software y soluciones digitales a la medida para empresas que necesitan modernizar, integrar o migrar sus sistemas.',
   },
   services: {
     title: 'Servicios',

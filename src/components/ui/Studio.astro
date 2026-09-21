@@ -1,0 +1,288 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n'
+import { getLocale } from '../../lib/i18n'
+import { getStudioContent } from '../../lib/studio'
+
+const locale = getLocale(Astro.currentLocale)
+const studio = getStudioContent(locale)
+const projectsHref = getRelativeLocaleUrl(locale, '/projects')
+const contactHref = getRelativeLocaleUrl(locale, '/contact')
+---
+
+<section class="border-b-2 border-[var(--text-h)]">
+  <div class="border-b-2 border-[var(--text-h)]">
+    <div class="mx-auto grid max-w-[1440px] grid-cols-1 lg:grid-cols-[1fr_1.2fr]">
+      <div class="flex flex-col gap-6 border-b-2 border-[var(--text-h)] px-6 py-14 lg:border-r-2 lg:border-b-0 lg:px-12 lg:py-20">
+        <p class="text-xs font-semibold tracking-[0.18em] text-[var(--accent)] uppercase">{studio.eyebrow}</p>
+        <h1 class="studio-heading max-w-[18ch]">{studio.heading}</h1>
+      </div>
+      <div class="flex flex-col gap-6 px-6 py-14 lg:px-12 lg:py-20">
+        <p class="max-w-[52ch] text-xl leading-relaxed text-pretty text-[var(--text-h)]">{studio.introLead}</p>
+        <p class="max-w-[54ch] text-[15px] leading-relaxed text-[var(--text)] opacity-80">{studio.introBody}</p>
+        <div>
+          {
+            studio.process.map((step) => (
+              <div class="grid grid-cols-[56px_1fr] gap-6 border-t-2 border-[var(--text-h)] py-6 last:border-b-2">
+                <span class="pt-1 font-[family-name:var(--mono)] text-[13px] text-[var(--accent)]">{step.num}</span>
+                <div>
+                  <h3 class="text-[17px] font-bold text-[var(--text-h)]">{step.title}</h3>
+                  <p class="mt-1.5 max-w-[52ch] text-[15px] leading-relaxed text-[var(--text)] opacity-80">
+                    {step.text}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <a
+          href={projectsHref}
+          class="mt-2 block self-start bg-[var(--text-h)] px-7 py-4.5 text-[13px] font-bold tracking-[0.14em] text-white uppercase hover:bg-[var(--accent)]"
+        >
+          {studio.processCtaLabel}
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t-2 border-[var(--text-h)] bg-[var(--text-h)]">
+      <div class="mx-auto grid max-w-[1440px] grid-cols-1 gap-px md:grid-cols-3">
+        {
+          studio.cards.map((card) => (
+            <div class="flex flex-col gap-5 bg-[var(--bg)] px-6 py-9 lg:px-12">
+              <span class="block h-2 w-8 bg-[var(--accent)]" />
+              <h4 class="studio-card-title">{card.title}</h4>
+              <p class="max-w-[30ch] text-[15px] leading-relaxed text-[var(--text)] opacity-80">{card.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="border-b-2 border-[var(--text-h)] bg-[#003b45] text-white">
+    <div class="mx-auto max-w-[1440px] px-6 py-20 lg:px-12">
+      <p class="studio-quote">
+        {studio.quoteBefore}<em class="not-italic text-[#f79068]">{studio.quoteEmphasis}</em>{studio.quoteAfter}
+      </p>
+    </div>
+  </div>
+
+  <fieldset class="m-0 border-0 border-b-2 border-[var(--text-h)] p-0">
+    <legend class="sr-only">{studio.traitsHeading}</legend>
+
+    <div class="mx-auto grid max-w-[1440px] gap-8 px-6 py-14 lg:grid-cols-[1fr_auto] lg:items-end lg:px-12">
+      <div>
+        <p class="text-xs font-semibold tracking-[0.18em] text-[var(--accent)] uppercase">{studio.traitsEyebrow}</p>
+        <h2 class="studio-subheading mt-4 max-w-[22ch]">{studio.traitsHeading}</h2>
+      </div>
+      <p class="max-w-[32ch] text-sm leading-relaxed font-semibold text-[var(--accent)]">&ldquo;{studio.traitsIntro}&rdquo;</p>
+    </div>
+
+    {
+      studio.traits.map((_, index) => (
+        <input type="radio" name="trait" id={`trait-${index}`} class="trait-input" checked={index === 0} />
+      ))
+    }
+
+    <div class="mx-auto grid max-w-[1440px] grid-cols-1 border-t-2 border-[var(--text-h)] lg:grid-cols-[1.15fr_1fr]">
+      <div class="trait-panels relative lg:border-r-2 lg:border-[var(--text-h)]">
+        {
+          studio.traits.map((trait, index) => (
+            <div
+              class="trait-panel flex min-h-[380px] flex-col justify-between gap-10 px-6 py-16 lg:px-12"
+              data-trait={index}
+              style={{ background: trait.background, color: trait.textColor }}
+            >
+              <span class="font-[family-name:var(--mono)] text-xs tracking-[0.1em] opacity-75">
+                {trait.num} / 08
+              </span>
+              <div>
+                <h3 class="trait-word max-w-[16ch]">{trait.word}</h3>
+                <p class="mt-6 max-w-[34ch] text-lg leading-relaxed text-pretty">{trait.text}</p>
+              </div>
+              <span class="block h-2.5 w-24" style={{ background: trait.accent }} />
+            </div>
+          ))
+        }
+      </div>
+      <div class="trait-grid grid grid-cols-2 gap-px bg-[var(--text-h)]">
+        {
+          studio.traits.map((trait, index) => (
+            <label
+              for={`trait-${index}`}
+              class="trait-label flex cursor-pointer flex-col justify-end gap-3 bg-[var(--bg)] px-6 py-6 text-[var(--text-h)]"
+              data-trait={index}
+              style={{ '--trait-bg': trait.background, '--trait-color': trait.textColor, '--trait-accent': trait.accent }}
+            >
+              <span class="trait-mark block h-1.5 w-6.5 bg-[var(--border)]" />
+              <span class="trait-label-word">{trait.word}</span>
+              <span class="font-[family-name:var(--mono)] text-[11px] opacity-70">{trait.num}</span>
+            </label>
+          ))
+        }
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="border-b-2 border-[var(--text-h)] bg-[#003b45] text-white">
+    <div class="mx-auto grid max-w-[1440px] grid-cols-1 gap-12 px-6 py-16 lg:grid-cols-[1fr_1.2fr] lg:px-12 lg:py-20">
+      <div>
+        <p class="text-xs font-semibold tracking-[0.18em] text-[#f79068] uppercase">{studio.coverageEyebrow}</p>
+        <h2 class="studio-subheading mt-6 max-w-[20ch]" style={{ color: '#ffffff' }}>{studio.coverageHeading}</h2>
+        <p class="mt-5 max-w-[42ch] text-[15px] leading-relaxed text-white/70">{studio.coverageIntro}</p>
+      </div>
+      <div>
+        <div class="grid grid-cols-2 gap-8 border-b-2 border-white/90 pb-3.5">
+          <span class="studio-coverage-label">{studio.coverageColumns.ops}</span>
+          <span class="studio-coverage-label">{studio.coverageColumns.dev}</span>
+        </div>
+        {
+          studio.coverageRows.map((row) => (
+            <div class="grid grid-cols-2 gap-8 border-b border-white/20 py-4.5">
+              <span class="text-[15px] leading-relaxed text-white/90">{row.ops}</span>
+              <span class="text-[15px] leading-relaxed text-white/90">{row.dev}</span>
+            </div>
+          ))
+        }
+        <p class="mt-6 text-[13px] leading-relaxed text-white/55">{studio.coverageFootnote}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto flex max-w-[1440px] flex-wrap items-center gap-7 px-6 py-14 lg:px-12">
+    <a
+      href={contactHref}
+      class="block bg-[var(--accent)] px-7 py-4.5 text-[13px] font-bold tracking-[0.14em] text-white uppercase hover:opacity-90"
+    >
+      {studio.ctaLabel}
+    </a>
+    <span class="text-[13px] text-[var(--text)] opacity-70">{studio.ctaNote}</span>
+  </div>
+</section>
+
+<style>
+  .studio-heading {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 2.6rem;
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--text-h);
+    text-wrap: pretty;
+  }
+
+  .studio-subheading {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 1.9rem;
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--text-h);
+    text-wrap: pretty;
+  }
+
+  .studio-card-title {
+    margin: 0;
+    font-family: var(--display);
+    font-size: 1.7rem;
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--text-h);
+  }
+
+  .studio-quote {
+    margin: 0;
+    max-width: 30ch;
+    font-family: var(--display);
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 1.15;
+    text-wrap: pretty;
+  }
+
+  .studio-coverage-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #f79068;
+  }
+
+  .trait-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .trait-panel {
+    display: none;
+  }
+
+  .trait-word {
+    margin: 0;
+    color: inherit;
+    font-family: var(--display);
+    font-size: 4.2rem;
+    font-weight: 400;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    text-wrap: pretty;
+  }
+
+  .trait-label-word {
+    font-family: var(--display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.05;
+  }
+
+  .trait-label {
+    transition:
+      background 0.25s ease,
+      color 0.25s ease;
+  }
+
+  .trait-label:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+
+  #trait-0:checked ~ div .trait-panels [data-trait='0'],
+  #trait-1:checked ~ div .trait-panels [data-trait='1'],
+  #trait-2:checked ~ div .trait-panels [data-trait='2'],
+  #trait-3:checked ~ div .trait-panels [data-trait='3'],
+  #trait-4:checked ~ div .trait-panels [data-trait='4'],
+  #trait-5:checked ~ div .trait-panels [data-trait='5'],
+  #trait-6:checked ~ div .trait-panels [data-trait='6'],
+  #trait-7:checked ~ div .trait-panels [data-trait='7'] {
+    display: flex;
+  }
+
+  #trait-0:checked ~ div .trait-grid label[data-trait='0'],
+  #trait-1:checked ~ div .trait-grid label[data-trait='1'],
+  #trait-2:checked ~ div .trait-grid label[data-trait='2'],
+  #trait-3:checked ~ div .trait-grid label[data-trait='3'],
+  #trait-4:checked ~ div .trait-grid label[data-trait='4'],
+  #trait-5:checked ~ div .trait-grid label[data-trait='5'],
+  #trait-6:checked ~ div .trait-grid label[data-trait='6'],
+  #trait-7:checked ~ div .trait-grid label[data-trait='7'] {
+    background: var(--trait-bg);
+    color: var(--trait-color);
+  }
+
+  #trait-0:checked ~ div .trait-grid label[data-trait='0'] .trait-mark,
+  #trait-1:checked ~ div .trait-grid label[data-trait='1'] .trait-mark,
+  #trait-2:checked ~ div .trait-grid label[data-trait='2'] .trait-mark,
+  #trait-3:checked ~ div .trait-grid label[data-trait='3'] .trait-mark,
+  #trait-4:checked ~ div .trait-grid label[data-trait='4'] .trait-mark,
+  #trait-5:checked ~ div .trait-grid label[data-trait='5'] .trait-mark,
+  #trait-6:checked ~ div .trait-grid label[data-trait='6'] .trait-mark,
+  #trait-7:checked ~ div .trait-grid label[data-trait='7'] .trait-mark {
+    background: var(--trait-accent);
+  }
+</style>
