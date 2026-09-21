@@ -5,7 +5,8 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://tudi.mx',
+  site: 'https://tudi-dev.github.io',
+  base: '/tudi-website',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],
